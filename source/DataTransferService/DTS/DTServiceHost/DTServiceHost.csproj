@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>5292856a-0898-4b46-bbab-580707097f00</ProjectGuid>
+    <ProjectGuid>{F045C6F4-09C9-41B0-92FA-7D6AD650C8DD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DTServiceHost</RootNamespace>

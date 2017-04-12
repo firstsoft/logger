@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>4c2e8df5-13f1-4c33-aee3-030838edc2b8</ProjectGuid>
+    <ProjectGuid>{8323D693-B3A3-40D7-8474-FFCB5B7C00BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DTService</RootNamespace>
