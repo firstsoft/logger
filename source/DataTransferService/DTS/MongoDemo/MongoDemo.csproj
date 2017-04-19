@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{98854E18-EDA8-4B96-ACA5-DDBDDCF8A6C2}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1937EAFB-D621-4367-A1F6-5FB1ACF55D02}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DTLib</RootNamespace>
-    <AssemblyName>DTLib</AssemblyName>
+    <RootNamespace>MongoDemo</RootNamespace>
+    <AssemblyName>MongoDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,10 +44,6 @@
       <HintPath>..\packages\MongoDB.Driver.Core.2.4.3\lib\net45\MongoDB.Driver.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -54,41 +52,24 @@
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cfg\ICfgSetter.cs" />
-    <Compile Include="db\CfgDbConnectionSetter.cs" />
-    <Compile Include="log\Actions.cs" />
-    <Compile Include="log\collection\Event.cs" />
-    <Compile Include="log\collection\Task.cs" />
-    <Compile Include="core\WorkMode.cs" />
-    <Compile Include="core\Message.cs" />
-    <Compile Include="db\IDbProvider.cs" />
-    <Compile Include="db\MongoDBProvider.cs" />
-    <Compile Include="DTEntry.cs" />
-    <Compile Include="log\collection\EventMappedRegister.cs" />
-    <Compile Include="log\CfgLogPathSetter.cs" />
-    <Compile Include="mapped\IMappedRegister.cs" />
-    <Compile Include="log\collection\TaskMappedRegister.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="core\Looper.cs" />
-    <Compile Include="core\TaskScheduler.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="EventTranslaterLib">
-      <Guid>{E35FE425-C69F-4829-B1A6-C2C934B805C3}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </COMReference>
+    <ProjectReference Include="..\DTLib\DTLib.csproj">
+      <Project>{98854e18-eda8-4b96-aca5-ddbddcf8a6c2}</Project>
+      <Name>DTLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
