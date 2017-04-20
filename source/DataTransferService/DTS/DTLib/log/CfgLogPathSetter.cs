@@ -5,8 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using MongoDB.Bson;
+using MongoDB.Driver;
+
 using DTLib.cfg;
 using DTLib.core;
+using DTLib.log.collection;
 namespace DTLib.log
 {
     public class CfgLogPathSetter : ICfgSetter<string>
@@ -25,13 +29,21 @@ namespace DTLib.log
         public void Set(string value) {
             this.Set((t) =>
             {
-                Console.WriteLine("Constructing");
-                return;
-                //string[] files = Directory.GetFiles(value, "ASLog*.log");
-                //foreach(string file in files)
-                //{
-                //    DTEntry.looper.SendMsg(new Message("import log", () => Actions.Import(file)) { WorkMode = WorkMode.TaskScheduler });
-                //}
+                string[] files = Directory.GetFiles(value, "ASLog*.log");
+                foreach (string file in files)
+                {
+                    FilterDefinition<collection.Task> filter = Builders<collection.Task>.Filter.Eq(task => task.file, file);
+                    if (DTEntry.DbProvider.Query<collection.Task>("Task", filter).Count() <= 0)
+                    {
+                        DTEntry.DbProvider.Insert<collection.Task>(new collection.Task()
+                        {
+                            file = file,
+                            status =0,
+                            
+                        }, "Task");
+                        DTEntry.looper.SendMsg(new Message("import log", () => Actions.Import(file)) { WorkMode = WorkMode.TaskScheduler });
+                    }
+                }
             }, value);
         }
 

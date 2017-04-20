@@ -11,7 +11,7 @@ namespace DTLib.core
         public Message()
         { 
             id = Guid.NewGuid();
-            WorkMode = core.WorkMode.Short;
+            WorkMode = core.WorkMode.TaskScheduler;
         }
         public Message(string _msg, Action _handler = null)
             : base()

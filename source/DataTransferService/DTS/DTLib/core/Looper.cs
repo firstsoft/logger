@@ -26,7 +26,7 @@ namespace DTLib.core
                             Message msg = this.Msgs.Dequeue();
                             if (msg.handler != null)
                             {
-                                if ( msg.WorkMode == WorkMode.Short)
+                                if ( msg.WorkMode == WorkMode.ThreadPool)
                                 {
                                     ThreadPool.QueueUserWorkItem(new WaitCallback((t) => msg.handler()));
                                 }

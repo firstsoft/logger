@@ -8,9 +8,8 @@ namespace DTLib.core
 {
     public enum WorkMode
     {
-        Short,
-        Medium,
-        Long,
-        TaskScheduler
+        ThreadPool,
+        TaskScheduler,
+        LongTask
     }
 }

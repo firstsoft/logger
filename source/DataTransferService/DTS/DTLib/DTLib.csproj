@@ -61,6 +61,7 @@
     <Compile Include="cfg\ICfgSetter.cs" />
     <Compile Include="db\CfgDbConnectionSetter.cs" />
     <Compile Include="log\Actions.cs" />
+    <Compile Include="log\collection\Base.cs" />
     <Compile Include="log\collection\Event.cs" />
     <Compile Include="log\collection\Task.cs" />
     <Compile Include="core\WorkMode.cs" />

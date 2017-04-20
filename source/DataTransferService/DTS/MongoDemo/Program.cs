@@ -14,6 +14,7 @@ using MongoDB.Bson.IO;
 
 using DTLib.db;
 using DTLib.log;
+using DTLib.log.collection;
 
 namespace MongoDemo
 {
@@ -52,7 +53,7 @@ namespace MongoDemo
 
             //Console.ReadLine();
 
-            TaskScheduler scheduler = TaskScheduler.Current;
+            //TaskScheduler scheduler = TaskScheduler.Current;
             
             //3
             //Task t = Task.Run(() =>
@@ -81,7 +82,6 @@ namespace MongoDemo
             //provider.init();
             DTLib.DTEntry.Run();
 
-
             DTLib.DTEntry.looper.SendMsg(new DTLib.core.Message("set connection", () =>
             {
                 if (!DTLib.DTEntry.Setters.ContainsKey(typeof(CfgDbConnectionSetter)))
@@ -107,6 +107,10 @@ namespace MongoDemo
             DTLib.DTEntry.looper.SendMsg(new DTLib.core.Message("exit"));
             Console.ReadLine();
 
+            var collection = DTLib.DTEntry.DbProvider.Query<Event>("Event");
+
+            var filter = Builders<Event>.Filter.Eq(ev => ev.date, "2017-04-06");
+            collection = DTLib.DTEntry.DbProvider.Query<Event>("Event", filter);
 
         }
     }

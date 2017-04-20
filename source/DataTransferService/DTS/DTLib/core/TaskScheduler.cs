@@ -14,12 +14,13 @@ namespace DTLib.core
             this.tasks = new Dictionary<int, Task>();
         }
 
-        public void AddTask(Action action)
+        public Task AddTask(Action action)
         {
             lock (this.tasks)
             {
                 Task task = this.factory.StartNew(action);
                 tasks.Add(task.Id, task);
+                return task;
             }
         }
         public  Dictionary<int, Task> tasks { get; private set; }

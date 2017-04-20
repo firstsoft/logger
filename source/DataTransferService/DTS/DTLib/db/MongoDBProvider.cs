@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 using System.Reflection;
 
+
 using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Shared;
+using MongoDB;
+using MongoDB.Driver.Linq;
+using MongoDB.Bson.IO;
 
 using DTLib.mapped;
 
@@ -49,6 +55,18 @@ namespace DTLib.db
         }
 
         public void Update<T>(T obj, string table) {  }
+
+        public IEnumerable<T> Query<T>(string table)
+        {
+            IMongoCollection<T> collection = db.GetCollection<T>(table);
+            return collection.Aggregate().ToList();
+        }
+
+        public IEnumerable<T> Query<T>(string table, FilterDefinition<T> filter)
+        {
+            IMongoCollection<T> collection = db.GetCollection<T>(table);
+            return collection.Find(filter).ToList();
+        }
 
         private MongoClient client { get; set; }
         private IMongoDatabase db { get; set; }
