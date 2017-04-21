@@ -16,7 +16,8 @@ namespace DTLib.log
         {
             EventTranslaterLib.CLoggerMgrClass lm = new CLoggerMgrClass();
             lm.SetOfflineLanguage(0);
-            lm.InitOfflineLoggerFolder(@"E:\Work\yashanyang_view10\Casino\AH\Data\Log");
+
+            lm.InitOfflineLoggerFolder((DTEntry.Setters[typeof(CfgLogPathSetter)] as CfgLogPathSetter).Value);
             int count;
             lm.LoadFile2(t, out count);
             Array data;
