@@ -20,5 +20,6 @@ namespace DTLib.log.collection
         public string date { get; set; }
         public string time { get; set; }
         public string message { get; set; }
+        public DateTime datetime { get; set; }
     }
 }

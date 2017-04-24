@@ -60,6 +60,15 @@ namespace DTLib.core
             }
         }
 
+        public void SendMsg(Action handler)
+        {
+            lock (this.Msgs)
+            {
+                this.Msgs.Enqueue(new Message("handler", handler));
+                this.waitevent.Set();
+            }
+        }
+
         public virtual void HandleMessage(Message msg)
         {
             Console.WriteLine("invalid message");
