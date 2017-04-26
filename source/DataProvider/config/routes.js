@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,17 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+  'get /Event/FindAll': 'EventController.FindAll',
+
+  'get /Event/EventType/:eventType': 'EventController.FindByEventType',
+
+  'get /Event/EventGroup/:eventGroup': 'EventController.FindByEventGroup',
+
+  'get /Event/Message/:message': 'EventController.FindByMessage',
+
+  'get /Event/FindByTime': 'EventController.FindByTime',
+
+  'get /Event/Search': 'EventController.Search'
 
 };
