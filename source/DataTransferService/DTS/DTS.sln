@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTServiceHost", "DTServiceH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDemo", "MongoDemo\MongoDemo.csproj", "{1937EAFB-D621-4367-A1F6-5FB1ACF55D02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{D61B1597-4280-4947-BFB8-4C6F9DB25E0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1937EAFB-D621-4367-A1F6-5FB1ACF55D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1937EAFB-D621-4367-A1F6-5FB1ACF55D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1937EAFB-D621-4367-A1F6-5FB1ACF55D02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D61B1597-4280-4947-BFB8-4C6F9DB25E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61B1597-4280-4947-BFB8-4C6F9DB25E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D61B1597-4280-4947-BFB8-4C6F9DB25E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D61B1597-4280-4947-BFB8-4C6F9DB25E0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
