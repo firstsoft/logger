@@ -17,9 +17,9 @@ namespace DTLib
     {
         public static void Run()
         {
-            if (!isRunning)
+            lock (objLock)
             {
-                lock (objLock)
+                if (!isRunning)
                 {
                     Setters = new Dictionary<Type, object>();
                     looper = new Looper();
